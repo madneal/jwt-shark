@@ -69,7 +69,7 @@ fn crack_jwt(
     worker_count: usize,
     input_lines: Vec<String>,
 ) {
-    let (tx, rx) = mpsc::channel();
+    let (tx, rx) = mpsc::channel::<String>();
     let rx = Arc::new(Mutex::new(rx));
     let token = Arc::new(parse_token(token));
 
