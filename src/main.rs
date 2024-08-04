@@ -51,10 +51,12 @@ fn main() {
 
     let input_lines = if let Some(dict_file) = dict_file {
         let file = File::open(dict_file).expect("Failed to open dict file");
-        BufReader::new(file).lines().collect::<Result<Vec<_>, _>>().expect("Failed to read lines from dict file")
+        BufReader::new(file).lines().collect::<Result<Vec<_>, _>>().
+            expect("Failed to read lines from dict file")
     } else {
         let stdin = io::stdin();
-        stdin.lock().lines().collect::<Result<Vec<_>, _>>().expect("Failed to read lines from stdin")
+        stdin.lock().lines().collect::<Result<Vec<_>, _>>().
+            expect("Failed to read lines from stdin")
     };
 
     let file = File::open(token_file).expect("Failed to open token file");
